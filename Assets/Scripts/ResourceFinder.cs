@@ -27,14 +27,11 @@ namespace Drones
 
         private const float SearchDelay = 0.1f;
 
-        private void OnValidate()
+        private void Awake()
         {
             if (_transform == null)
                 _transform = transform;
-        }
 
-        private void Start()
-        {
             _foundResources = new Collider[_searchCapacity];
         }
 
@@ -56,7 +53,7 @@ namespace Drones
 
                 if (resourcesCount > 0)
                 {
-                    Resource resource = GetClosestResource();
+                    Resource resource = GetNearestResource();
 
                     if (resource != null)
                     {
@@ -70,9 +67,9 @@ namespace Drones
             }
         }
 
-        private Resource GetClosestResource()
+        private Resource GetNearestResource()
         {
-            Resource closestResource = null;
+            Resource nearestResource = null;
             float minDistance = float.MaxValue;
 
             for (int i = 0; i < _foundResources.Length; i++)
@@ -87,11 +84,11 @@ namespace Drones
                     float distance = Vector3.Distance(_transform.position, resource.Position);
 
                     if (distance < minDistance)
-                        closestResource = resource;
+                        nearestResource = resource;
                 }
             }
 
-            return closestResource;
+            return nearestResource;
         }
 
         private void CleanupFoundResources()

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8664325933638070257}
   - component: {fileID: 3272527130397402992}
   - component: {fileID: 2755640860659527012}
+  - component: {fileID: 7033705971043314983}
   m_Layer: 0
   m_Name: Drone_BlueTeam
   m_TagString: Untagged
@@ -35,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2708346360392976527}
+  - {fileID: 6313692795754893169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2420552077649773725
@@ -146,6 +148,51 @@ MonoBehaviour:
   _resourceLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &7033705971043314983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879619951008078670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b3e71986eeaa744a835f744a934d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unloadedResourcePSPrefab: {fileID: 6521682711359648921, guid: 290e97e42d5e02540ab7ab107f04b7cf, type: 3}
+  _emitPoint: {fileID: 6313692795754893169}
+--- !u!1 &3168137490072356051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6313692795754893169}
+  m_Layer: 0
+  m_Name: EmitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6313692795754893169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168137490072356051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4830373199852931106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3743983002721493276
 GameObject:
   m_ObjectHideFlags: 0

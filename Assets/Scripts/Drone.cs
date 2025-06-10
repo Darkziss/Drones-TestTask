@@ -35,6 +35,8 @@ namespace Drones
         private const float MinCollectingDistance = 0.01f;
         private const float MinUnloadingDistance = 2f;
 
+        public event Action ResourceUnloaded;
+
         private void OnValidate()
         {
             if (_transform == null)
@@ -189,6 +191,8 @@ namespace Drones
         {
             _targetResource.Release();
             _targetResource = null;
+
+            ResourceUnloaded?.Invoke();
 
             SetState(DroneState.Searching);
         }

@@ -11,8 +11,6 @@ namespace Drones
     {
         [SerializeField] private Transform _baseTransform;
 
-        [SerializeField] private LayerMask _resourceLayer;
-
         private Transform _transform;
         private NavMeshAgent _navMeshAgent;
         private ResourceFinder _resourceFinder;
@@ -21,17 +19,9 @@ namespace Drones
 
         private Resource _targetResource;
 
-        private readonly WaitForSeconds _searchDelay = new(SearchDelay);
         private readonly WaitForSeconds _collectDelay = new(CollectDelay);
 
-        private readonly Collider[] _foundResources = new Collider[Capacity];
-
-        private const int Capacity = 15;
-
-        private const float SearchDelay = 0.1f;
         private const float CollectDelay = 2f;
-
-        private const float CheckRadius = 100f;
 
         private const float MinCollectingDistance = 0.01f;
         private const float MinUnloadingDistance = 2f;

@@ -17,7 +17,7 @@ namespace Pooling
             poolParent = new GameObject(poolParentName);
         }
 
-        public static T GetFromPool<T>(string name, T original, Vector3 position, Quaternion rotation) where T: MonoBehaviour
+        public static T GetFromPool<T>(string name, T original, Vector3 position, Quaternion rotation) where T: Component
         {
             bool contains = _pools.ContainsKey(name);
 

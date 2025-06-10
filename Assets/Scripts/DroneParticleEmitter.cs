@@ -12,7 +12,7 @@ namespace Drones
 
         private Drone _drone;
 
-        private void OnValidate()
+        private void Awake()
         {
             if (_drone == null)
                 _drone = GetComponent<Drone>();

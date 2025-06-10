@@ -9,11 +9,15 @@ namespace Drones
 
         private const int DefaultTargetFrameRate = 60;
 
+        [SerializeField] private DronePopulationRegulator _dronePopulationRegulator;
+
         private void Awake()
         {
             Application.targetFrameRate = _targetFrameRate;
 
             PoolStorage.Init();
+
+            _dronePopulationRegulator.Init();
         }
     }
 }

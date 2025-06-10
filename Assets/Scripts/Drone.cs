@@ -9,7 +9,7 @@ namespace Drones
     [RequireComponent(typeof(NavMeshAgent), typeof(ResourceFinder))]
     public class Drone : MonoBehaviour
     {
-        [SerializeField] private Transform _baseTransform;
+        private Transform _baseTransform;
 
         private Transform _transform;
         private NavMeshAgent _navMeshAgent;
@@ -40,8 +40,19 @@ namespace Drones
                 _resourceFinder = GetComponent<ResourceFinder>();
         }
 
-        private void Start()
+        public void Init(Transform baseTransform)
         {
+            if (_transform == null)
+                _transform = transform;
+
+            if (_navMeshAgent == null)
+                _navMeshAgent = GetComponent<NavMeshAgent>();
+
+            if (_resourceFinder == null)
+                _resourceFinder = GetComponent<ResourceFinder>();
+
+            _baseTransform = baseTransform;
+
             SetState(DroneState.Searching);
         }
 

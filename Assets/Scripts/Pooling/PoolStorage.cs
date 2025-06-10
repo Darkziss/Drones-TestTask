@@ -29,7 +29,7 @@ namespace Pooling
             return clone.GetComponent<T>();
         }
 
-        public static void PutToPool<T>(string name, T clone) where T: MonoBehaviour
+        public static void PutToPool<T>(string name, T clone) where T: Component
         {
             bool contains = _pools.ContainsKey(name);
 

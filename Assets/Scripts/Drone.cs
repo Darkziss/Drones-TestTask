@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using Drones.Utils;
 
 namespace Drones
 {
@@ -19,9 +20,7 @@ namespace Drones
 
         private Resource _targetResource;
 
-        private Coroutine _searchCoroutine;
         private readonly WaitForSeconds _searchDelay = new(SearchDelay);
-
         private readonly WaitForSeconds _collectDelay = new(CollectDelay);
 
         private readonly Collider[] _foundResources = new Collider[Capacity];
@@ -34,7 +33,7 @@ namespace Drones
         private const float CheckRadius = 100f;
 
         private const float MinCollectingDistance = 0.01f;
-        private const float MinUnloadingDistance = 1f;
+        private const float MinUnloadingDistance = 2f;
 
         private void OnValidate()
         {
@@ -52,22 +51,16 @@ namespace Drones
 
         private void Update()
         {
-            if (_state == DroneState.Found && IsPassedDistanceTo(_targetResource.Position, MinCollectingDistance))
+            if (_state == DroneState.Found 
+                && DroneUtils.IsPassedMinDistanceToPositionWithExcludedY(_transform.position, _targetResource.Position, MinCollectingDistance))
+            {
                 SetState(DroneState.Collecting);
-            else if (_state == DroneState.Delivering && IsPassedDistanceTo(_baseTransform.position, MinUnloadingDistance))
+            }
+            else if (_state == DroneState.Delivering 
+                && DroneUtils.IsPassedMinDistanceToPositionWithExcludedY(_transform.position, _baseTransform.position, MinUnloadingDistance))
+            {
                 SetState(DroneState.Unloading);
-        }
-
-        private bool IsPassedDistanceTo(Vector3 targetPosition, float minDistance)
-        {
-            Vector3 position = _transform.position;
-            position.y = 0f;
-
-            targetPosition.y = 0f;
-
-            float distance = Vector3.Distance(position, targetPosition);
-
-            return distance < minDistance;
+            }
         }
 
         private void SetState(DroneState requestedState)
@@ -83,7 +76,7 @@ namespace Drones
                     StartSearchingForResource();
                     break;
                 case DroneState.Found:
-                    StopSearchingForResource();
+                    ReserveAndStartMovingToTargetResource();
                     break;
                 case DroneState.Collecting:
                     StartCollectingResource();
@@ -101,20 +94,14 @@ namespace Drones
 
         private void StartSearchingForResource()
         {
-            _searchCoroutine = StartCoroutine(TryFoundResource());
-        }
-
-        private void StopSearchingForResource()
-        {
-            if (_searchCoroutine != null)
-                StopCoroutine(_searchCoroutine);
+            StartCoroutine(TryFoundResource());
         }
 
         private IEnumerator TryFoundResource()
         {
             while (true)
             {
-                ClenupFoundResources();
+                CleanupFoundResources();
 
                 int resourcesCount = Physics.OverlapSphereNonAlloc(_transform.position, CheckRadius,
                     _foundResources, _resourceLayer);
@@ -125,7 +112,7 @@ namespace Drones
 
                     if (resource != null)
                     {
-                        SetAsTargetResource(resource);
+                        _targetResource = resource;
                         SetState(DroneState.Found);
 
                         break;
@@ -136,7 +123,7 @@ namespace Drones
             }
         }
 
-        private void ClenupFoundResources()
+        private void CleanupFoundResources()
         {
             for (int i = 0; i < _foundResources.Length; i++)
             {
@@ -147,11 +134,9 @@ namespace Drones
             }
         }
 
-        private void SetAsTargetResource(Resource resource)
+        private void ReserveAndStartMovingToTargetResource()
         {
-            _targetResource = resource;
             _targetResource.Reserve();
-
             _navMeshAgent.SetDestination(_targetResource.Position);
         }
 

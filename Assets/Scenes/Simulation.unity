@@ -3728,6 +3728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone_BlueTeam (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2879619951008078670, guid: f1b628aa0eb919b469fecf95b57f21d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4830373199852931106, guid: f1b628aa0eb919b469fecf95b57f21d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -5535,7 +5539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1361394020
 Transform:
   m_ObjectHideFlags: 0
@@ -6067,6 +6071,10 @@ PrefabInstance:
     - target: {fileID: 2879619951008078670, guid: f1b628aa0eb919b469fecf95b57f21d9, type: 3}
       propertyPath: m_Name
       value: Drone_BlueTeam (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879619951008078670, guid: f1b628aa0eb919b469fecf95b57f21d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4830373199852931106, guid: f1b628aa0eb919b469fecf95b57f21d9, type: 3}
       propertyPath: m_LocalPosition.x

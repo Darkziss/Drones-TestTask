@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8664325933638070257}
   - component: {fileID: 3272527130397402992}
   m_Layer: 0
-  m_Name: Drone
+  m_Name: Drone_BlueTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

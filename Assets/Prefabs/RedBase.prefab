@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453534391151693923, guid: 2828c9b679188fb40979e80a78561440, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 453534391151693923, guid: 2828c9b679188fb40979e80a78561440, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b34c601e438c4be4cb982255a45f8630, type: 2}
     - target: {fileID: 3178004986166094388, guid: 2828c9b679188fb40979e80a78561440, type: 3}
       propertyPath: m_Name
-      value: RedBase Variant
+      value: RedBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178004986166094388, guid: 2828c9b679188fb40979e80a78561440, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -22,8 +22,6 @@ namespace Drones
 
         private const float SpawnDelay = 0.5f;
 
-        private const string ResourceName = "Resource";
-
         private const float MaxDistance = 10f;
 
         private const float YPosition = 1f;
@@ -55,7 +53,7 @@ namespace Drones
 
                 Vector3 position = GetRandomPosition();
 
-                PoolStorage.GetFromPool(ResourceName, _resourcePrefab, position, Quaternion.identity);
+                PoolStorage.GetFromPool(nameof(Resource), _resourcePrefab, position, Quaternion.identity);
             }
         }
 
@@ -82,7 +80,6 @@ namespace Drones
 
                     return sampledPosition;
                 }
-                    
             }
         }
     }

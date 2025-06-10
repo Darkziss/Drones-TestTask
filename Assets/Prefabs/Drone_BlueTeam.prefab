@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8664325933638070257}
   - component: {fileID: 3272527130397402992}
   - component: {fileID: 2755640860659527012}
-  - component: {fileID: 4839079917349327818}
   m_Layer: 0
   m_Name: Drone_BlueTeam
   m_TagString: Untagged
@@ -143,29 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee7484682a94e348b3b60d590e64ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseTransform: {fileID: 0}
   _resourceLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!1818360608 &4839079917349327818
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879619951008078670}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 4, z: -23}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 0
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 0
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 4830373199852931106}
-    weight: 1
 --- !u!1 &3743983002721493276
 GameObject:
   m_ObjectHideFlags: 0

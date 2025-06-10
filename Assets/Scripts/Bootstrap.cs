@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pooling;
 
 namespace Drones
 {
@@ -11,6 +12,8 @@ namespace Drones
         private void Awake()
         {
             Application.targetFrameRate = _targetFrameRate;
+
+            PoolStorage.Init();
         }
     }
 }

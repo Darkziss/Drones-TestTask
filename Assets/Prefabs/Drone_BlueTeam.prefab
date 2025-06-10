@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3272527130397402992}
   - component: {fileID: 2755640860659527012}
   - component: {fileID: 7033705971043314983}
+  - component: {fileID: 371288335903174498}
   m_Layer: 0
   m_Name: Drone_BlueTeam
   m_TagString: Untagged
@@ -162,6 +163,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unloadedResourcePSPrefab: {fileID: 6521682711359648921, guid: 290e97e42d5e02540ab7ab107f04b7cf, type: 3}
   _emitPoint: {fileID: 6313692795754893169}
+--- !u!114 &371288335903174498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879619951008078670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1dc03d7aaaac3b499b6416326af96bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _searchCapacity: 15
+  _searchRadius: 100
+  _resourceLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &3168137490072356051
 GameObject:
   m_ObjectHideFlags: 0

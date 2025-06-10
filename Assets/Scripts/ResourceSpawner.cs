@@ -77,7 +77,12 @@ namespace Drones
                     throw new Exception();
 
                 if (!Physics.CheckSphere(randomPosition, CheckRadius, _obstacleLayer))
-                    return hit.position;
+                {
+                    Vector3 sampledPosition = new(hit.position.x, YPosition, hit.position.z);
+
+                    return sampledPosition;
+                }
+                    
             }
         }
     }

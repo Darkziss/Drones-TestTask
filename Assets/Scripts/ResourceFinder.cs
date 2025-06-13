@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Drones.Utils;
 
 namespace Drones
 {
@@ -81,7 +82,8 @@ namespace Drones
 
                 if (!resource.IsReserved)
                 {
-                    float distance = Vector3.Distance(_transform.position, resource.Position);
+                    float distance = DroneUtils.GetDistanceWithExcludedY(_transform.position, 
+                        resource.Position);
 
                     if (distance < minDistance)
                         nearestResource = resource;
